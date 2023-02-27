@@ -1,3 +1,5 @@
+import java.io.FileWriter;
+import java.io.PrintWriter;
 import java.net.URI;
 import java.net.http.HttpClient;
 import java.net.http.HttpRequest;
@@ -37,22 +39,22 @@ public class Desafio {
                 }
                 if (propriedades[0].equals("\"image\"")) {
                     // images.add(propriedades[1].replace("\"", ""));
-                    filme.setTitle(propriedades[1].replace("\"", ""));
+                    filme.setImage(propriedades[1].replace("\"", ""));
                 }
                 if (propriedades[0].equals("\"rating\"")) {
                     // images.add(propriedades[1].replace("\"", ""));
-                    filme.setTitle(Double.parseDouble(propriedades[1].replace("\"", "")));
+                    filme.setRating(Double.parseDouble(propriedades[1].replace("\"", "")));
                 }
                 if (propriedades[0].equals("\"year\"")) {
                     // images.add(propriedades[1].replace("\"", ""));
-                    filme.setTitle(Integer.parseInt(propriedades[1].replace("\"", "")));
+                    filme.setYear(Integer.parseInt(propriedades[1].replace("\"", "")));
                 }
                 lista.add(filme);
             }
             
-            for (Movie f : lista) {
+            // for (Movie f : lista) {
             	// System.out.println(f.toString());
-            }
+            // }
             
             String head =
 	    """
@@ -81,7 +83,7 @@ public class Desafio {
             	body = body + "<label>" + f.getRating() + "</label>";
             	body = body + "<br>";
             	body = body + "<label>Year</label>";
-            	body = body + "<label>" + f.getTYear() + "</label>";
+            	body = body + "<label>" + f.getYear() + "</label>";
             	body = body + "</div>";
             }
             body = body + "</body>";
@@ -89,7 +91,7 @@ public class Desafio {
             
             FileWriter fileWriter = new FileWriter("output.html");
     	    PrintWriter printWriter = new PrintWriter(fileWriter);
-            HtmlGenerator generator = new HtmlGenerator(printer);
+            HtmlGenerator generator = new HtmlGenerator(printWriter);
             generator.generate(head+ body+ "</html>");
     	    printWriter.close();
             

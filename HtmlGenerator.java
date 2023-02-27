@@ -1,12 +1,6 @@
-import java.net.URI;
-import java.net.http.HttpClient;
-import java.net.http.HttpRequest;
-import java.net.http.HttpResponse;
-import java.net.http.HttpResponse.BodyHandlers;
-import java.util.ArrayList;
-import java.util.List;
+import java.io.PrintWriter;
 
-public class HtmlgGenerator {
+public class HtmlGenerator {
 
     PrintWriter printer;
     
@@ -16,7 +10,7 @@ public class HtmlgGenerator {
     
     public void generate(String site) {
         System.out.println("imprimindo" + site);
-        printWriter.print(site);
+        printer.print(site);
     }
 }
 

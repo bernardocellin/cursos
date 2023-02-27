@@ -1,14 +1,6 @@
-import java.net.URI;
-import java.net.http.HttpClient;
-import java.net.http.HttpRequest;
-import java.net.http.HttpResponse;
-import java.net.http.HttpResponse.BodyHandlers;
-import java.util.ArrayList;
-import java.util.List;
-
 public class Movie {
     private String title;
-    private String urlImage;
+    private String image;
     private Double rating;
     private Integer year;
     
@@ -17,6 +9,24 @@ public class Movie {
     }
     public void setTitle(String title) {
     	this.title = title;
+    }
+    public String getImage() {
+    	return this.image;
+    }
+    public void setImage(String image) {
+    	this.image = image;
+    }
+    public Double getRating() {
+    	return this.rating;
+    }
+    public void setRating(Double rating) {
+    	this.rating = rating;
+    }
+    public Integer getYear() {
+    	return this.year;
+    }
+    public void setYear(Integer year) {
+    	this.year = year;
     }
 }
 
