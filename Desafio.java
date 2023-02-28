@@ -8,9 +8,9 @@ public class Desafio {
         try {
 
             ImdbApiClient cliente = new ImdbApiClient();
-            String json = cliente.makeRequest("https://imdb-api.com/en/API/Top250Movies/k_hgne65xv");
+            String json = cliente.getBody("https://imdb-api.com/en/API/Top250Movies/k_hgne65xv");
 
-	        List<Movie> lista = new ImdbMovieJsonParser().parse(json);
+	        List<? extends Content> lista = new ImdbMovieJsonParser().parse(json);
             
             String head =
 	        """
@@ -26,7 +26,7 @@ public class Desafio {
             
             String body = "<body>";
             
-            for (Movie f : lista) {
+            for (Content f : lista) {
             	body = body + "<div>";
             	body = body + "<br>";
             	body = body + "<label>Título</label>";

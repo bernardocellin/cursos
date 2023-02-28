@@ -5,7 +5,7 @@ import java.net.http.HttpRequest;
 import java.net.http.HttpResponse;
 import java.net.http.HttpResponse.BodyHandlers;
 
-public class ImdbApiClient {
+public class ImdbApiClient implements ApiClient {
 
     private HttpClient client;
     
@@ -13,7 +13,7 @@ public class ImdbApiClient {
     	this.client = HttpClient.newHttpClient();
     }
     
-    public String makeRequest(String link) {
+    public String getBody(String link) {
 
         HttpRequest request = HttpRequest.newBuilder()
         .uri(URI.create(link))

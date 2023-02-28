@@ -1,4 +1,4 @@
-public class Movie {
+public class Movie implements Content{
     private String title;
     private String image;
     private Double rating;

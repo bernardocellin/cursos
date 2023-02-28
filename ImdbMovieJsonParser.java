@@ -1,9 +1,9 @@
 import java.util.ArrayList;
 import java.util.List;
 
-public class ImdbMovieJsonParser {
+public class ImdbMovieJsonParser implements JsonParser{
     
-    public List<Movie> parse(String json) {
+    public List<? extends Content>parse(String json) {
         List<Movie> lista = new ArrayList<Movie>();
         String [] atributos = json.split("\",");
         // para cada linha
