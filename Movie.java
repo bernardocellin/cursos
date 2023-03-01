@@ -28,5 +28,9 @@ public class Movie implements Content{
     public void setYear(Integer year) {
     	this.year = year;
     }
+
+    public int compareTo(Content outro) {
+        return this.getRating().compareTo(outro.getRating());
+    }
 }
 

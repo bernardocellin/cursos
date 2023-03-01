@@ -1,8 +1,10 @@
 import java.io.FileWriter;
 import java.io.PrintWriter;
+import java.util.Comparator;
 import java.util.List;
 
 public class Desafio {
+	@SuppressWarnings("unchecked")
     public static void main(String args[]) {
         System.out.println("inicia teste");
         try {
@@ -11,6 +13,12 @@ public class Desafio {
             String json = cliente.getBody("https://imdb-api.com/en/API/Top250Movies/k_hgne65xv");
 
 	        List<? extends Content> lista = new ImdbMovieJsonParser().parse(json);
+			
+			lista.sort(new Comparator() {
+				@Override
+				public int compare(Object m1, Object m2) {
+					return ((Movie)m1).getRating().compareTo(((Movie)m2).getRating());				}
+			});
             
             String head =
 	        """
